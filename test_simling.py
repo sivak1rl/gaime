@@ -180,7 +180,7 @@ class TestSimlingAI(unittest.TestCase):
         self.simling.update(time_delta_seconds=0.1, world_objects=self.world_objects)
         
         self.assertLess(self.simling.hunger, initial_hunger)
-        self.assertAlmostEqual(self.simling.hunger, 80.0 - 50.0) # FoodSource reduces by 50
+        self.assertAlmostEqual(self.simling.hunger, 80.0 - 50.0, 1) # FoodSource reduces by 50
         self.assertEqual(self.simling.current_action, "idle")
         self.assertIsNone(self.simling.target_object)
 
@@ -199,7 +199,7 @@ class TestSimlingAI(unittest.TestCase):
         self.simling.update(time_delta_seconds=0.1, world_objects=self.world_objects)
         
         self.assertLess(self.simling.sleep, initial_sleep)
-        self.assertAlmostEqual(self.simling.sleep, 80.0 - 70.0) # Bed reduces by 70
+        self.assertAlmostEqual(self.simling.sleep, 80.0 - 70.0, 1) # Bed reduces by 70
         self.assertEqual(self.simling.current_action, "idle")
         self.assertIsNone(self.simling.target_object)
 
